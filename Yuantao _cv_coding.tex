@@ -1,0 +1,296 @@
+\documentclass[10pt]{article}
+% I am PhD student studying physics, now I want to find a job in computer science
+% This resum is writen a lot of detail, you may not use every part of it. 
+% I wirte this resume to find a job related to CS. 
+% So I include some work of CS.
+
+\usepackage{calc}
+\usepackage{comment}
+\usepackage{lipsum}
+
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em} %1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newenvironment{bibsection}%
+        {\begin{enumerate}{}{%
+%        {\begin{list}{}{%
+       \setlength{\leftmargin}{\bibhang}%
+       \setlength{\itemindent}{-\leftmargin}%
+       \setlength{\itemsep}{\bibsep}%
+       \setlength{\parsep}{\z@}%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{enumerate}\vspace{-.6\baselineskip}}
+%        {\end{list}\vspace{-.6\baselineskip}}
+\makeatother
+
+
+\reversemarginpar
+
+
+\usepackage[paper=letterpaper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=1.2in,     % Length of section titles
+            marginparsep=.05in,       % Space between titles and text
+            margin=1in,               % 1 inch margins
+            includemp]{geometry}
+
+
+\setlength{\parindent}{0in}
+
+\usepackage[shortlabels]{enumitem}
+
+
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newcommand{\makeheading}[2][]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+             {\large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+% The section headings
+%
+% command: \section{section name}
+\renewcommand{\section}[1]{\pagebreak[3]%
+    \hyphenpenalty=10000%
+    \vspace{1.3\baselineskip}%
+    \phantomsection\addcontentsline{toc}{section}{#1}%
+    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\raggedright #1}}}%
+    \vspace{-\baselineskip}\par}
+
+% An itemize-style list with lots of space between items
+\newenvironment{outerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*]}{\end{itemize}%
+         \vspace{-.6\baselineskip}}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\begin{list}{#1}{%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+% An itemize-style list with little space between items
+\newenvironment{innerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+        {\end{itemize}}
+
+% An environment IDENTICAL to innerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{loneinnerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+        {\end{itemize}\vspace{-.6\baselineskip}}
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+
+% Uses hyperref to link DOI
+\newcommand\doilink[1]{\href{http://dx.doi.org/#1}{#1}}
+\newcommand\doi[1]{doi:\doilink{#1}}
+
+% For \url{SOME_URL}, links SOME_URL to the url SOME_URL
+\providecommand*\url[1]{\href{#1}{#1}}
+% Same as above, but pretty-prints SOME_URL in teletype fixed-width font
+\renewcommand*\url[1]{\href{#1}{\texttt{#1}}}
+
+% For \email{ADDRESS}, links ADDRESS to the url mailto:ADDRESS
+\providecommand*\email[1]{\href{mailto:#1}{#1}}
+% Same as above, but pretty-prints ADDRESS in teletype fixed-width font
+%\renewcommand*\email[1]{\href{mailto:#1}{\texttt{#1}}}
+
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    \TeX}}
+\providecommand\BibTeX{{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    \TeX}}
+\providecommand\Matlab{\textsc{Matlab}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\makeheading{Yuantao Xie}
+
+\section{Contact Information}
+% as I am a international student, I add my visa information 
+\newlength{\rcollength}\setlength{\rcollength}{1.4in}%
+%
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
+%\href{http://www.phys.xxx.edu/}%
+%     {Department of Physics} & \\
+%\href{http://www.xx.edu/}{XXX University}
+614 Washington ST SE    & 540-315-XXX \\
+Blacksburg, VA(24060)     & \email{yuantaomai@xxx.edu}\\
+   & Visa: F1\\
+\end{tabular}
+
+%\section{Objective} Computational modeling, data analytics, software developer,  or other work related to computer science
+
+\section{Job Interests}
+
+Software engineer, software developer, or other jobs related to computer science 
+
+%% I take several on e coursera to show that I have some coding skill 
+\section{Related \\Courses}
+Coursera online courses
+\begin{innerlist}
+\item \href{https://www.coursera.org/account/accomplishments/verify/NL53LASFCH87}{Divide and Conquer, Sorting and Searching, and Randomized Algorithms}
+\item \href{https://www.coursera.org/account/accomplishments/verify/DQ69YVDJPCU8}{Graph Search, Shortest Paths, and Data Structures}
+\item \href{https://www.coursera.org/account/accomplishments/verify/Y2R74QULMT6W}{Machine learning} 
+\end{innerlist}
+
+
+\section{Education}
+
+\textbf{Ph.D.} in physics, \href{http://www.XXX.edu}{XXX University}, \emph{expected:} Nov 2017
+
+        \begin{innerlist}
+      
+        \item Ph.D. Advisor:
+              \href{http://www.phys.xxx.edu/~xxx/}
+                   {XXX, Ph.D.}
+        \end{innerlist}
+         \begin{innerlist}
+        \item GPA: 3.74/4.0
+        \end{innerlist}
+        
+
+\vspace{.1in}        
+\textbf{B.S.} in physics, \href{http://www.xxx.edu.cn/}{XXX University}, Wuhan, Hubei, China, July 2012
+
+        \begin{innerlist}
+        \item GPA: 3.72/4.0
+        \end{innerlist}
+        
+%% as I want to find a job related to CS, here I highlight my CS skills
+\section{coding\\ \& \\ data analysis}
+\begin{innerlist}
+\item Java (\textit{proficient})  \hfill  Data analysis and modeling
+\item Mathematica (\textit{proficient}) \hfill Data analysis and modeling
+\item GNU Octave (\textit{proficient}) \hfill Machine learning
+\item  Origin and  Labtalk (\textit{proficient}) \hfill  Data analysis and plotting
+\item  LabView (\textit{good}) \hfill   Data collection and equipment controlling
+\end{innerlist}
+
+\section{Research Experience}
+
+\textbf{Graduate Researcher},  Department of Physics,  Feb 2013 to present
+\begin{innerlist}
+\item[] Supervisor: XXX, Ph.D.       
+\item Low-temperature quantum electronic transport in nanolithographic mesoscopic structures
+\item Experimental characterization of Aharonov-Bohm quantum phase effects in various mesoscopic interferometer geometries (ring structures, open self-focusing structures, etc.)
+\item Quantum phase decoherence due to environmental coupling and electron-electron interactions 
+\item Spin interference and quantum edge states from Rashba spin-orbit interaction 
+\item Measurement of spin- and quantum phase coherence times using quantum transport (weak localization and weak antilocalization)
+\item Electromagnetic transport properties of Ge/III-V heterostructures (partially funded by Intel Corporation) 
+\item Electromagnetic transport characterization of pyrochlore epitaxial films (Bi$_{2}$Ir$_{2}$O$_{7}$)
+
+\end{innerlist}
+
+\section{Experimental Skills}
+
+\begin{innerlist}
+\item Fabricating nanoscale devices on thin films: photolithography, e-beam lithography, reactive ion etching (ICP-RIE), wet etching, thin film deposition methods, Ohmic contacting and annealing  
+\item Measuring low- and variable-temperature magnetotransport and low-excitation quantum transport by a $^{3}$He cryostat and exchange gas closed-cycle cryostat, with superconducting and resistive magnets 
+\item Measuring quantum electronic transport by low noise level electronic signal recovery techniques 
+\item Building equipment, such as high-temperature annealing systems 
+\item Depositing elemental superconductors and metallic thin films by evaporation  
+\item Equipment mastered: photolithographic mask aligner,  scanning electron microscopy,  reactive ion etchers, atomic force microscopy, profilometer, cryogenic equipment, vacuum technology, sputter coaters and thin film evaporators, atomic layer deposition, annealers,  and electronic equipment (analog and digital lock-in amplifiers, preamplifiers, resistance bridges, temperature controllers, magnet power supplies, etc.) 
+
+\vspace{0.27in}
+        
+\end{innerlist}
+
+\section{Journal Publications}
+\vspace{-.1275in}
+\begin{bibsection}
+    \item	M. K. Hudait, M. Clavel, P. S. Goley, {\bf Yuantao Xie} and J. J. Heremans, ``Magnetotransport properties of epitaxial Ge/AlAs heterostructures integrated on GaAs and silicon." ACS Appl. Mater. Interfaces {\bf 7}, 22315 (2015).
+    \item {\bf Yuantao Xie}, J. J. Heremans and M. B. Santos, ``Effect of two-dimensional parity symmetry breaking in Aharonov-Bohm interference phenomena." Integr. Ferroelectr. {\bf 174}, 8 (2016).
+    \item {\bf Yuantao Xie}, C. L. Priol and J. J. Heremans, ``Geometrical dependence of quantum decoherence in circular arenas with side-wires." J. Phys.:Condens. Matt.  {\bf 28}, 495003 (2016).
+   \item J. J. Heremans, {\bf Yuantao Xie}, Shaola  Ren, C. L. Priol and M. B. Santos, ``Mapping electromagnetic dualities via quantum decoherence measurements in 2D materials." Proceedings of SPIE {\bf 9932}, 993207 (2016).
+ \item J. J. Heremans, {\bf Yuantao Xie} and C. L. Priol, ``Influence of environment and geometry on measured quantum coherence in InGaAs mesoscopic wires and stadia." Accepted for publication in IOP Conference Series (ICPS 2016 proceedings).  
+ \item Wencao Yang, {\bf Yuantao Xie}, Wenka Zhu, K. Park, Aiping Chen, Y. Losovyj, Zhen Li, Haoming Liu, M. Starr, J. A. Acosta, Chenggang Tao, Nan Li, Quanxi Jia, J. J. Heremans and Shixiong Zhang, ``Epitaxial thin films of pyrochlore iridate Bi$_{2+x}$Ir$_{2-y}$O$_{7-\delta}$: structures, defects and transport properties." Sci. Rep. {\bf 7}, 7740 (2017).
+
+    
+\end{bibsection}
+
+
+\section{Papers in Preparation}
+\vspace{-.1in}
+\begin{bibsection}
+     \item  {\bf Yuantao Xie}, J. J. Heremans and C. L. Priol, ``Length dependence of quantum phase coherence in InGaAs wires."  
+    \item {\bf Yuantao Xie}, J. J. Heremans and M. B. Santos, ``Aharonov-Bohm effect in self-focusing elliptical potential walls on InGaAs."
+    \item M. Clavel, Jheng-Sin Liu, {\bf Yuantao Xie}, J. J. Heremans, R. J. Bodnar and M. K. Hudait, ``Structural, morphological and magnetotransport properties of epitaxial Boron-doped p-Ge/AlAs and n-Ge/AlAs heterostructures." 
+    \item M. Clavel, Jheng-Sin Liu, {\bf Yuantao Xie}, J. J. Heremans, R. J. Bodnar and M. K. Hudait, ``Multi-valley electron conduction at the indirect-direct crossover point in highly-strained Germanium."
+
+
+\end{bibsection}
+
+\section{Scholarships \\ \& \\Awards}
+Student Awards, Department of Physics, Virginia Tech 
+\begin{innerlist}
+\item Ray F. Tipsword Graduate Scholarship, Apr 2016
+\item Dr. James A. Jacobs Memorial Graduate Fellowship, Apr 2015
+\end{innerlist}
+
+\section{Teaching Experience}
+Teaching Assistant, Department of Physics, Virginia Tech, Sep 2012 to Dec 2013
+\begin{innerlist}
+\item helped students to improve their experimental skill
+\item learned how to explain clearly and logically
+\end{innerlist}
+
+
+
+\section{Conference Presentations}
+March Meeting of the American Physical Society
+\begin{innerlist}
+\item {\bf Yuantao Xie}, J. J. Heremans, C. L. Priol, S. Vijeyaragunathan, T. D. Mishima, and M. B. Santos, ``Quantum coherence of mesoscopic stadia and wires coupled to the environment",  Baltimore, MD \hfill Mar 14-18, \textbf{2016}  
+\item  J. J. Heremans, {\bf Yuantao Xie}, M. K. Hudait, M. Clavel, and P. S. Goley,``Electronic properties of epitaxial Ge/AlAs heterostructures on Si and GaAs",  Baltimore, MD 
+  \hspace* \hfill Mar 14-18, \textbf{2016}  
+\item \textbf{Yuantao Xie}, J. J. Heremans, S. Vijeyaragunathan, T. D. Mishima, M. B. Santos, `` Aharonov-Bohm oscillations due to ballistic closed trajectories in elliptic self-focusing geometries", New Orleans, LA \hfill Mar 13-17, \textbf{2017}\\
+\end{innerlist}
+
+
+
+
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% End Resume Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
